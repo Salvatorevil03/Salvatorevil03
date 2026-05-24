@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide — QR Generator</title>
+    <meta name="description" content="Complete guide on how to use the QR Code Generator step by step">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="guida.css">
+</head>
+
+<body>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <main class="container guide-container">
+        <!-- ── Breadcrumb ────────────────────────────── -->
+        <nav class="breadcrumb">
+            <a href="index.html" class="breadcrumb-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+                Back to generator
+            </a>
+        </nav>
+
+        <!-- ── Header ────────────────────────────────── -->
+        <header class="guide-header">
+            <div class="guide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                </svg>
+            </div>
+            <h1>User Guide</h1>
+            <p class="guide-subtitle">Learn how to use the QR Code Generator step by step</p>
+        </header>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- ── STEP 1 ────────────────────────────────── -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="guide-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h2>Find the prefixes — Part 1</h2>
+                <p>
+                    Head over to the <strong>Friends</strong> section of the game. From there, you can view
+                    the <strong>Profile Card</strong> of any player you are friends with in-game.
+                    Each profile card contains a unique QR code along with a short alphanumeric string — this
+                    string is what you need. You will collect one prefix for each friend whose QR code you
+                    want to generate.
+                </p>
+                <img src="img/img1.jpg" alt="Friends section showing profile cards">
+            </div>
+        </section>
+
+        <!-- ── STEP 2 ────────────────────────────────── -->
+        <section class="guide-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h2>Find the prefixes — Part 2</h2>
+                <p>
+                    Once you open a player's profile card, look at the <strong>bottom-right corner</strong>
+                    next to their QR code — you will find a short code displayed there. Copy that code;
+                    it will serve as one of your <strong>prefixes</strong>.
+                    Repeat this process for each friend whose QR code you need. For example, if you need
+                    three QR codes, you should collect three different prefix codes.
+                </p>
+                <img src="img/img2.jpg" alt="Profile card with prefix code highlighted">
+            </div>
+        </section>
+
+        <!-- ── STEP 3 ────────────────────────────────── -->
+        <section class="guide-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h2>Find the QR Code text</h2>
+                <p>
+                    Navigate to the <strong>Dragon Balls</strong> section of the game. Here you will find
+                    your own personal QR code. Tap on it to reveal the full text string, then
+                    <strong>copy only the relevant portion</strong> of that string — this is the shared
+                    text that will be appended to each of the prefixes you collected in the previous steps.
+                    Together, each prefix combined with this text forms the final content encoded in each QR code.
+                </p>
+                <img src="img/img3.jpg" alt="Dragon Balls section with QR code text">
+            </div>
+        </section>
+
+        <!-- ── Helpful Notes ─────────────────────────── -->
+        <section class="guide-notes">
+            <h2>Helpful Notes</h2>
+            <div class="note-card">
+                <div class="note-icon">💡</div>
+                <div>
+                    <h3>JSON Format</h3>
+                    <p>
+                        The JSON file can be either a simple array or an object with a <code>"prefixes"</code> key.
+                        For example: <code>{"prefixes": ["4,9np4rsa8", "4,3a4awhdm"]}</code>.
+                        After entering your prefixes manually, you can download a JSON file to speed things up
+                        next time — just click <strong>Upload JSON</strong> and all your prefixes will be loaded
+                        automatically.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Footer ────────────────────────────────── -->
+        <footer class="guide-footer">
+            <a href="index.html" class="back-to-generator">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+                Back to generator
+            </a>
+            <p class="community-credit">A service brought to you by the <strong>Italian Dragon Ball Legends Community</strong> 🇮🇹</p>
+        </footer>
+    </main>
+</body>
+
+</html>

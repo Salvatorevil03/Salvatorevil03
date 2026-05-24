@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <meta name="description" content="Generate multiple QR codes side by side from custom prefixes and a shared text input">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <main class="container">
+        <header class="header">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="4" height="4" rx="0.5"/>
+                    <line x1="21" y1="14" x2="21" y2="21"/>
+                    <line x1="14" y1="21" x2="21" y2="21"/>
+                </svg>
+                <h1>QR Generator</h1>
+            </div>
+            <p class="subtitle">Set up your prefixes and generate QR codes</p>
+            <a href="guida.html" class="guide-link" id="guide-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+                User Guide
+            </a>
+        </header>
+
+        <!-- ── Prefixes Section ──────────────────────── -->
+        <section class="prefix-section" id="prefix-section">
+            <div class="prefix-header">
+                <div class="prefix-title-row">
+                    <label class="input-label">Prefixes</label>
+                    <span class="prefix-badge" id="prefix-badge">0 prefixes</span>
+                </div>
+                <div class="prefix-actions">
+                    <label class="icon-btn" id="upload-json-label" title="Upload JSON">
+                        <input type="file" id="upload-json" accept=".json" hidden>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <span>Upload JSON</span>
+                    </label>
+                    <button class="icon-btn" id="download-json-btn" type="button" title="Download JSON" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span>Download JSON</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="prefix-input-area">
+                <div class="prefix-list" id="prefix-list">
+                    <!-- Prefix chips are added here dynamically -->
+                </div>
+                <div class="add-prefix-row">
+                    <input 
+                        type="text" 
+                        id="prefix-input" 
+                        placeholder="Add a prefix and press Enter..."
+                        autocomplete="off"
+                    >
+                    <button id="add-prefix-btn" type="button" title="Add prefix">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── QR Text Section ───────────────────────── -->
+        <section class="input-section">
+            <div class="input-group">
+                <label for="qr-input" class="input-label">QR Code Text</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="qr-input" 
+                        placeholder="Enter the text to append..."
+                        autocomplete="off"
+                    >
+                    <button id="generate-btn" type="button">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                        Generate
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── QR Codes Section (generated dynamically) ── -->
+        <section class="qr-section" id="qr-section">
+            <div class="qr-grid" id="qr-grid">
+                <!-- QR cards are generated by JS -->
+            </div>
+
+            <div class="actions hidden" id="actions">
+                <button id="download-btn" class="action-btn download-btn" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download combined image
+                </button>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>A service brought to you by the <strong>Italian Dragon Ball Legends Community</strong> 🇮🇹</p>
+        </footer>
+    </main>
+
+    <script src="qrcode.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
